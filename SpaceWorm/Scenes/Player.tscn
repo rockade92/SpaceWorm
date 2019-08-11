@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Heads/headDownLeft.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Heads/headRight.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Heads/headUpRight.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Heads/headRightEats1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Heads/headRightEats2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Heads/headRightEats3.png" type="Texture" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "eatRight",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+[node name="Player" type="Area2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "eatRight"
+frame = 2
+
+[node name="Sprite" type="Sprite" parent="AnimatedSprite"]
+position = Vector2( 21.5871, -21.3119 )
+scale = Vector2( 0.656567, 0.671044 )
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="AnimatedSprite"]
+position = Vector2( -11.9973, -21.3119 )
+scale = Vector2( 0.781129, 0.671044 )
+texture = ExtResource( 7 )
+offset = Vector2( -15.9651, 0 )
+
+[node name="Sprite5" type="Sprite" parent="AnimatedSprite"]
+position = Vector2( -61.1581, -21.3119 )
+scale = Vector2( 0.781129, 0.671044 )
+texture = ExtResource( 7 )
+offset = Vector2( -15.9651, 0 )
+
+[node name="Sprite4" type="Sprite" parent="AnimatedSprite"]
+position = Vector2( -12.5943, 21.616 )
+scale = Vector2( 0.778201, 0.671044 )
+texture = ExtResource( 7 )
+offset = Vector2( -15.9651, 0 )
+
+[node name="Sprite6" type="Sprite" parent="AnimatedSprite"]
+position = Vector2( -61.7551, 21.616 )
+scale = Vector2( 0.778201, 0.671044 )
+texture = ExtResource( 7 )
+offset = Vector2( -15.9651, 0 )
+
+[node name="Sprite3" type="Sprite" parent="AnimatedSprite"]
+position = Vector2( 21.3724, 21.4013 )
+scale = Vector2( 0.656567, 0.671044 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 4, 4 )
+shape = SubResource( 2 )
+

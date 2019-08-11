@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Factory.gd" type="Script" id=1]
+[ext_resource path="res://Assets/corpRosu3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/corpOranj.png" type="Texture" id=3]
+[ext_resource path="res://Assets/corpGalben2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/corpVerdecentru.png" type="Texture" id=5]
+[ext_resource path="res://Assets/corpbleu.png" type="Texture" id=6]
+[ext_resource path="res://Assets/corpIndigo2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/corpViolet.png" type="Texture" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Factory" type="Node"]
+script = ExtResource( 1 )
+
+[node name="red" type="Area2D" parent="."]
+position = Vector2( 324.353, 977.883 )
+
+[node name="fruit" type="CollisionShape2D" parent="red"]
+position = Vector2( -1.13605, -1.04895 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+
+[node name="bodyRed" type="Sprite" parent="red"]
+show_behind_parent = true
+position = Vector2( -0.567993, -0.119995 )
+texture = ExtResource( 2 )
+
+[node name="orange" type="Area2D" parent="."]
+position = Vector2( 175.716, 968.898 )
+
+[node name="fruit" type="CollisionShape2D" parent="orange"]
+position = Vector2( -0.965149, -0.756531 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+
+[node name="bodyOrange" type="Sprite" parent="orange"]
+show_behind_parent = true
+texture = ExtResource( 3 )
+
+[node name="yelllow" type="Area2D" parent="."]
+position = Vector2( 641.99, 991.454 )
+
+[node name="fruit" type="CollisionShape2D" parent="yelllow"]
+position = Vector2( -0.478516, -1.15363 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+
+[node name="bodyYellow" type="Sprite" parent="yelllow"]
+show_behind_parent = true
+texture = ExtResource( 4 )
+
+[node name="green" type="Area2D" parent="."]
+position = Vector2( 471.691, 965.249 )
+
+[node name="fruit" type="CollisionShape2D" parent="green"]
+position = Vector2( -0.209229, -0.389893 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+
+[node name="bodyGreen" type="Sprite" parent="green"]
+show_behind_parent = true
+texture = ExtResource( 5 )
+
+[node name="bleu" type="Area2D" parent="."]
+position = Vector2( 811.563, 978.94 )
+
+[node name="fruit" type="CollisionShape2D" parent="bleu"]
+position = Vector2( -1.16101, -0.868774 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+
+[node name="bodyBleu" type="Sprite" parent="bleu"]
+show_behind_parent = true
+texture = ExtResource( 6 )
+
+[node name="indigo" type="Area2D" parent="."]
+position = Vector2( 1002.65, 989.907 )
+
+[node name="fruit" type="CollisionShape2D" parent="indigo"]
+position = Vector2( -0.677979, -0.571655 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+
+[node name="bodyIndigo" type="Sprite" parent="indigo"]
+show_behind_parent = true
+texture = ExtResource( 7 )
+
+[node name="violet" type="Area2D" parent="."]
+position = Vector2( -69.8483, 973.606 )
+
+[node name="fruit" type="CollisionShape2D" parent="violet"]
+position = Vector2( -0.593994, -1.56378 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+
+[node name="bodyViolet" type="Sprite" parent="violet"]
+show_behind_parent = true
+texture = ExtResource( 8 )
+
+[connection signal="area_entered" from="red" to="." method="_area_overlap_"]
+[connection signal="area_entered" from="orange" to="." method="_area_overlap_"]
+[connection signal="area_entered" from="yelllow" to="." method="_area_overlap_"]
+[connection signal="area_entered" from="green" to="." method="_area_overlap_"]
+[connection signal="area_entered" from="bleu" to="." method="_area_overlap_"]
+[connection signal="area_entered" from="indigo" to="." method="_area_overlap_"]
+[connection signal="area_entered" from="violet" to="." method="_area_overlap_"]
