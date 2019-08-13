@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Factory.gd" type="Script" id=1]
-[ext_resource path="res://Assets/corpRosu3.png" type="Texture" id=2]
-[ext_resource path="res://Assets/corpOranj.png" type="Texture" id=3]
-[ext_resource path="res://Assets/corpGalben2.png" type="Texture" id=4]
-[ext_resource path="res://Assets/corpVerdecentru.png" type="Texture" id=5]
-[ext_resource path="res://Assets/corpbleu.png" type="Texture" id=6]
-[ext_resource path="res://Assets/corpIndigo2.png" type="Texture" id=7]
-[ext_resource path="res://Assets/corpViolet.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Bodies/corpRosu3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Bodies/corpOranj.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Bodies/corpGalben2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Bodies/corpVerdecentru.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Bodies/corpbleu.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Bodies/corpIndigo2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Bodies/corpViolet.png" type="Texture" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 

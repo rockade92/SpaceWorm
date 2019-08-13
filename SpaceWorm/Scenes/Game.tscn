@@ -1,40 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
-[ext_resource path="res://Assets/white-square-tiled-texture-background_53876-63565.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Levels/1_Earth/buildingsBackground.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Factory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Snake.tscn" type="PackedScene" id=4]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="white-square-tiled-texture-background_53876-63565" type="Sprite" parent="."]
-position = Vector2( 520, 230 )
-scale = Vector2( 1.11661, 1.05755 )
-texture = ExtResource( 2 )
-offset = Vector2( -150.89, -84.9971 )
+[node name="Fundal" type="Sprite" parent="."]
 
-[node name="white-square-tiled-texture-background_53876-63567" type="Sprite" parent="."]
-position = Vector2( 1124.21, 230 )
-scale = Vector2( 1.11661, 1.05755 )
+[node name="buildingsBackground" type="Sprite" parent="Fundal"]
+position = Vector2( 3015.99, 261.187 )
 texture = ExtResource( 2 )
-offset = Vector2( -150.89, -84.9971 )
-
-[node name="white-square-tiled-texture-background_53876-63568" type="Sprite" parent="."]
-position = Vector2( 1124.21, 609.864 )
-scale = Vector2( 1.11661, 1.05755 )
-texture = ExtResource( 2 )
-offset = Vector2( -150.89, -84.9971 )
-
-[node name="white-square-tiled-texture-background_53876-63566" type="Sprite" parent="."]
-position = Vector2( 330.075, 581.809 )
-scale = Vector2( 1.11661, 1.05755 )
-texture = ExtResource( 2 )
-offset = Vector2( 19.2679, -56.6297 )
 
 [node name="Factory" parent="." instance=ExtResource( 3 )]
 
 [node name="red" parent="Factory" index="0"]
-editor/display_folded = true
 visible = false
 
 [node name="orange" parent="Factory" index="1"]
@@ -60,6 +42,9 @@ visible = false
 [node name="violet" parent="Factory" index="6"]
 editor/display_folded = true
 visible = false
+
+[node name="snake" parent="." instance=ExtResource( 4 )]
+position = Vector2( 126.515, 194.533 )
 
 [connection signal="object_overlap" from="Factory" to="." method="_on_Factory_object_overlap"]
 
