@@ -1,5 +1,6 @@
 extends Node2D
 
+var MenuScene = preload("res://Scenes/Buttons/TitleScreen.tscn")
 var direction = Vector2(2,0)
 const gap = -20
 #var next_tail_dir = Vector2(1,0)
@@ -29,13 +30,14 @@ func move_snake():
 	if(prev_dir != direction):
 		prev_dir = direction
 		dir_change = true
-	#if ( get_node_or_null("snake" ) != null ):
-	var head_pos = get_node("head").position
-	get_node("head").position += direction
+		
+	if ( get_node_or_null("head" ) != null ):
+		var head_pos = get_node("head").position
+		get_node("head").position += direction
 	
-	if(dir_change):
-		for i in range(1,get_child_count()):
-			get_child(i).add_to_tail(head_pos, direction)
+		if(dir_change):
+			for i in range(1,get_child_count()):
+				get_child(i).add_to_tail(head_pos, direction)
 
 func add_tail():
 	var inst = tail.instance()
@@ -53,5 +55,14 @@ func add_tail():
 	add_child_below_node(  prev_tail, inst)
 	
 func remove_tail():
-	var tail = get_child(get_child_count()-1 )
-	tail.queue_free()
+	print("nr of children: ", get_child_count())
+	if ( get_child_count() > 3 ):
+		var tail = get_child(get_child_count()-1 )
+		tail.queue_free()
+	else:
+		die_and_stop_game()
+		
+func die_and_stop_game():
+	print ("died")
+	get_node("head").queue_free()
+	get_tree().get_root().add_child(MenuScene)

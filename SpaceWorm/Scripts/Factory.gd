@@ -53,8 +53,8 @@ func generate_element(index):
 func _area_overlap_(area):
 	var objName = area.get_child(0).name
 	print ("overlap area ",area.name , " child name ",objName)
-	if(area.name != "Player"  ):
+	if(area.name != "head"  ):
 		emit_signal("object_overlap",(objName))
-		print ("signal")
+		print ("delete fruit", area.name)
 		area.free()
 		

@@ -3,7 +3,7 @@
 extends Node
 
 
-func get_random_number(MAX, MIN):
+func get_random_number(MIN, MAX):
 	randomize()
 	var num = randi()%(MAX) + MIN
 	return num
