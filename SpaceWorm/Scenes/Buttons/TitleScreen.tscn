@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Buttons/kongtext24.tres" type="DynamicFont" id=1]
+[ext_resource path="res://csm_G058_BS_Rapportdaten_b94fd415ce.jpg" type="Texture" id=2]
+[ext_resource path="res://Scenes/Buttons/NO.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Buttons/YES.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Buttons/I don't know.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Theme" id=1]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 784.0
+margin_bottom = 440.0
+theme = SubResource( 1 )
+
+[node name="Title" type="Label" parent="Menu"]
+margin_right = 756.0
+margin_bottom = 77.0
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0.141176, 0.129412, 0.129412, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+text = "You died, mothafuka!
+You want to continue?"
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+margin_top = 81.0
+margin_right = 756.0
+margin_bottom = 81.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="centerRox" type="HBoxContainer" parent="Menu"]
+margin_top = 85.0
+margin_right = 756.0
+margin_bottom = 360.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/centerRox"]
+margin_right = 756.0
+margin_bottom = 275.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="NO" parent="Menu/centerRox/Buttons" instance=ExtResource( 3 )]
+margin_top = 80.0
+margin_right = 756.0
+margin_bottom = 105.0
+
+[node name="Yes" parent="Menu/centerRox/Buttons" instance=ExtResource( 4 )]
+margin_top = 125.0
+margin_right = 756.0
+margin_bottom = 150.0
+
+[node name="Yes2" parent="Menu/centerRox/Buttons" instance=ExtResource( 5 )]
+margin_top = 170.0
+margin_right = 756.0
+margin_bottom = 195.0
+
