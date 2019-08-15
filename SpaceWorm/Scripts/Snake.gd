@@ -8,6 +8,7 @@ var prev_dir = Vector2(1,0)
 
 onready var tail = preload("res://Scenes/Tail.tscn")
 
+var look_direction = Vector2(1, 0)
 
 func _process(delta):
 	if(Input.is_action_pressed("ui_up")):

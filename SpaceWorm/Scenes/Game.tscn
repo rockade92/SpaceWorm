@@ -16,6 +16,7 @@ position = Vector2( 3015.99, 261.187 )
 texture = ExtResource( 2 )
 
 [node name="Factory" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 
 [node name="red" parent="Factory" index="0"]
 visible = false
@@ -45,7 +46,7 @@ editor/display_folded = true
 visible = false
 
 [node name="snake" parent="." instance=ExtResource( 4 )]
-position = Vector2( 126.515, 194.533 )
+position = Vector2( 930.829, 801.177 )
 
 [node name="Node2D" parent="." instance=ExtResource( 5 )]
 
