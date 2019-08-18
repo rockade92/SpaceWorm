@@ -49,12 +49,3 @@ func generate_element(index):
 #
 #		area.free()
 
-
-func _area_overlap_(area):
-	var objName = area.get_child(0).name
-	print ("overlap area ",area.name , " child name ",objName)
-	if(area.name != "head"  ):
-		emit_signal("object_overlap",(objName))
-		print ("delete fruit", area.name)
-		area.free()
-		

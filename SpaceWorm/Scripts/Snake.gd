@@ -65,5 +65,5 @@ func remove_tail():
 		
 func die_and_stop_game():
 	print ("died")
-	get_node("head").queue_free()
-	get_tree().get_root().add_child(MenuScene)
+	get_node("Game").queue_free()
+	get_tree().change_scene_to(MenuScene)
