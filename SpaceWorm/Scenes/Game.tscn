@@ -48,6 +48,12 @@ visible = false
 position = Vector2( 930.829, 801.177 )
 
 [node name="Node2D" parent="." instance=ExtResource( 5 )]
+
+[node name="LadyBug" parent="Node2D" index="0"]
+visible = false
+
+[node name="Bug" parent="Node2D" index="1"]
+editor/display_folded = true
 visible = false
 
 [connection signal="object_overlap" from="Factory/red" to="." method="object_overlap"]

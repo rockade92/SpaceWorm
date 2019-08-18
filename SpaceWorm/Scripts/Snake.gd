@@ -57,7 +57,7 @@ func add_tail():
 	
 func remove_tail():
 	print("nr of children: ", get_child_count())
-	if ( get_child_count() > 3 ):
+	if ( get_child_count() > 1 ):
 		var tail = get_child(get_child_count()-1 )
 		tail.queue_free()
 	else:
@@ -65,5 +65,8 @@ func remove_tail():
 		
 func die_and_stop_game():
 	print ("died")
-	get_node("Game").queue_free()
 	get_tree().change_scene_to(MenuScene)
+	if (get_node_or_null("Game") != null ):
+		print ("died root ", get_node("Game").name, "   ", get_node("Game").get_child(1).name)
+	#get_node("Game").queue_free()
+	#get_tree().change_scene_to(MenuScene)
