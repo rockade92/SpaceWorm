@@ -1,19 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/FactoryEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Enemies/ladybug2.png" type="Texture" id=3]
-[ext_resource path="res://csm_G058_BS_Rapportdaten_b94fd415ce.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/Enemies/ladybug3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Enemies/rhinocerusBeetle.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Enemies/stagBeetle.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="CircleShape2D" id=2]
+radius = 3.58819
 
 [node name="Factory" type="Node"]
 script = ExtResource( 1 )
 
 [node name="LadyBug" type="Area2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="enemy" type="CollisionShape2D" parent="LadyBug"]
@@ -24,18 +25,32 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="LadyBug"]
 texture = ExtResource( 3 )
 
-[node name="Bug" type="Area2D" parent="."]
+[node name="rhinocerusBeetle" type="Area2D" parent="."]
+position = Vector2( 111.455, -12.605 )
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bug"]
-position = Vector2( 213.75, 43.7001 )
-scale = Vector2( 2, 2 )
+[node name="enemy" type="CollisionShape2D" parent="rhinocerusBeetle"]
+position = Vector2( 2.81653, 12.8214 )
+scale = Vector2( 6.84411, -12.3117 )
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Bug"]
-position = Vector2( 209.632, 43.7502 )
-scale = Vector2( 0.0219421, 0.0437606 )
+[node name="Sprite" type="Sprite" parent="rhinocerusBeetle"]
 texture = ExtResource( 4 )
 
+[node name="stagBeetle" type="Area2D" parent="."]
+position = Vector2( 247.456, -11.2781 )
+rotation = 1.56006
+script = ExtResource( 2 )
+
+[node name="enemy" type="CollisionShape2D" parent="stagBeetle"]
+position = Vector2( 4.14494, 6.5025 )
+scale = Vector2( 2.54992, 5.0321 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="stagBeetle"]
+rotation = 0.0271219
+texture = ExtResource( 5 )
+
 [connection signal="area_entered" from="LadyBug" to="LadyBug" method="area_entered"]
-[connection signal="area_entered" from="Bug" to="Bug" method="area_entered"]
+[connection signal="area_entered" from="rhinocerusBeetle" to="rhinocerusBeetle" method="area_entered"]
+[connection signal="area_entered" from="stagBeetle" to="stagBeetle" method="area_entered"]

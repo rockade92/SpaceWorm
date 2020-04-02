@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ladybug2.png-4d6f476c73fb7a81c637f6c8e4ca80cd.stex"
+path="res://.import/worldModelQuick.png-26751d62634ff5310480dd4dd738ea12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/ladybug2.png"
-dest_files=[ "res://.import/ladybug2.png-4d6f476c73fb7a81c637f6c8e4ca80cd.stex" ]
+source_file="res://Assets/Levels/1_Earth/worldModelQuick.png"
+dest_files=[ "res://.import/worldModelQuick.png-26751d62634ff5310480dd4dd738ea12.stex" ]
 
 [params]
 
