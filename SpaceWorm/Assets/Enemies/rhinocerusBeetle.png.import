@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/white-square-tiled-texture-background_53876-63565.jpg-20215cd38c9dff68b514418272700208.stex"
+path="res://.import/rhinocerusBeetle.png-8e9ab80a215ad250c1a1ccbdffd57d93.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/white-square-tiled-texture-background_53876-63565.jpg"
-dest_files=[ "res://.import/white-square-tiled-texture-background_53876-63565.jpg-20215cd38c9dff68b514418272700208.stex" ]
+source_file="res://Assets/Enemies/rhinocerusBeetle.png"
+dest_files=[ "res://.import/rhinocerusBeetle.png-8e9ab80a215ad250c1a1ccbdffd57d93.stex" ]
 
 [params]
 

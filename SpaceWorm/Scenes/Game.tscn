@@ -1,64 +1,81 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Levels/1_Earth/buildingsBackground.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Factory.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Snake.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Levels/1_Earth/worldModelQuick.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Snake.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Factory.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Fonts/kongtext.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 6 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Fundal" type="Sprite" parent="."]
-
-[node name="buildingsBackground" type="Sprite" parent="Fundal"]
-position = Vector2( 3015.99, 261.187 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 3184.86, 904.665 )
 texture = ExtResource( 2 )
 
-[node name="Factory" parent="." instance=ExtResource( 3 )]
+[node name="snake" parent="." instance=ExtResource( 3 )]
+position = Vector2( 476.415, 552.445 )
+
+[node name="Factory" parent="." instance=ExtResource( 4 )]
+editor/display_folded = true
 
 [node name="red" parent="Factory" index="0"]
-visible = false
+editor/display_folded = true
+position = Vector2( 168.398, 7800.92 )
 
 [node name="orange" parent="Factory" index="1"]
 editor/display_folded = true
-visible = false
+position = Vector2( 19.7608, 7791.94 )
 
 [node name="yelllow" parent="Factory" index="2"]
 editor/display_folded = true
-visible = false
+position = Vector2( 486.035, 7814.49 )
 
 [node name="green" parent="Factory" index="3"]
 editor/display_folded = true
-visible = false
+position = Vector2( 315.736, 7788.29 )
 
 [node name="bleu" parent="Factory" index="4"]
 editor/display_folded = true
-visible = false
+position = Vector2( 655.608, 7801.98 )
 
 [node name="indigo" parent="Factory" index="5"]
 editor/display_folded = true
-visible = false
+position = Vector2( 846.695, 7812.95 )
 
 [node name="violet" parent="Factory" index="6"]
 editor/display_folded = true
-visible = false
-
-[node name="snake" parent="." instance=ExtResource( 4 )]
-position = Vector2( 930.829, 801.177 )
+position = Vector2( -225.803, 7796.65 )
 
 [node name="Node2D" parent="." instance=ExtResource( 5 )]
 
 [node name="LadyBug" parent="Node2D" index="0"]
-visible = false
+position = Vector2( 738.711, 5634.63 )
 
-[node name="Bug" parent="Node2D" index="1"]
-editor/display_folded = true
-visible = false
+[node name="Score counter" type="Node" parent="."]
 
-[connection signal="object_overlap" from="Factory/red" to="." method="object_overlap"]
-[connection signal="fruit_eaten" from="Factory/orange" to="." method="fruit_eaten"]
-[connection signal="object_overlap" from="Factory/orange" to="." method="object_overlap"]
+[node name="UI" type="CanvasLayer" parent="Score counter"]
+
+[node name="Control" type="Control" parent="Score counter/UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="RichTextLabel" type="Label" parent="Score counter/UI/Control"]
+margin_left = 4.40126
+margin_top = 10.563
+margin_right = 44.4013
+margin_bottom = 50.563
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.0901961, 0.94902, 0.384314, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+
 
 [editable path="Factory"]
 

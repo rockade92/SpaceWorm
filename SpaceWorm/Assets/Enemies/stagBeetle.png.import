@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/buildingsBackground.png-6e15ab78b42790e7509b4d63ea8147a8.stex"
+path="res://.import/stagBeetle.png-894ecf7a117ecb2f673915bb82681ec8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Levels/1_Earth/buildingsBackground.png"
-dest_files=[ "res://.import/buildingsBackground.png-6e15ab78b42790e7509b4d63ea8147a8.stex" ]
+source_file="res://Assets/Enemies/stagBeetle.png"
+dest_files=[ "res://.import/stagBeetle.png-894ecf7a117ecb2f673915bb82681ec8.stex" ]
 
 [params]
 

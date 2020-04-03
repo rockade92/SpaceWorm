@@ -23,7 +23,12 @@ config/icon="res://icon.png"
 
 utils="*res://Scripts/utils.gd"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [rendering]
 
-environment/default_clear_color=Color( 0.231373, 0.341176, 0.482353, 1 )
+environment/default_clear_color=Color( 0.0509804, 0.0941176, 0.152941, 1 )
 environment/default_environment="res://default_env.tres"

@@ -2,76 +2,65 @@ extends Node2D
 
 onready var factoryInstance = preload("res://Scenes/Factory.tscn").instance()
 onready var factoryEnemyInstance = preload("res://Scenes/Enemy.tscn").instance()
-
-onready var viewportX = int( get_viewport_rect().size.x )
-onready var viewportY = int( get_viewport_rect().size.y )
-
-onready var spawnMaxX = viewportX - 100
-onready var spawnMaxY = viewportY - 100
-
-var spawnMinX = 100
-var spawnMinY = 100
-
-var mapMaxX = 6020
-var mapMaxY = 1200
+	
+var _score = 0
 
 func _ready():
-	print (viewportX, " ", viewportY)
 	startSpawn()
-	createEnemy(utils.get_random_number(spawnMinX ,spawnMaxX ), utils.get_random_number(spawnMinY, spawnMaxY ))
-	createEnemy(utils.get_random_number(spawnMinX ,spawnMaxX ), utils.get_random_number(spawnMinY, spawnMaxY ))
-	createEnemy(utils.get_random_number(spawnMinX ,spawnMaxX ), utils.get_random_number(spawnMinY, spawnMaxY ))
+	set_process(true)
 	
-	
+func _process(delta):
+	var LabelNode = get_node("Score counter/UI/Control/RichTextLabel")
+	LabelNode.text = str(_score)
+		
 func fruit_eaten():
 	print ("fruit eaten")
+	_score += 10
 	if ( get_node_or_null("snake" ) !=  null ):
-		$"snake".add_tail()	
+		$"snake".addTail()	
 			
+func startSpawn():		
+	var aHeadCoordinates = utils.getRandomCoordinates()
+	spawnSnake(aHeadCoordinates)
+	var aNbOfFruits = utils.getRandomNumber(25, 35)
+	print ("nb fruits ",aNbOfFruits )
+	for i in range (aNbOfFruits):
+		var aCoordinates = getCoordinatesOutsideOfSnake(aHeadCoordinates)
+		createFruit(aCoordinates[0] ,aCoordinates[1])
 		
-func startSpawn():
-	var headX = utils.get_random_number(spawnMinX ,spawnMaxX )
-	var headY = utils.get_random_number(spawnMinY, spawnMaxY )
-	spawnSnake(headX, headY)
-	var y = utils.get_random_number(10, 11)
-	print ("nb fruits ",y )
-	for i in range (y):
-		var coordinates = getCoordinatesOutsideOfSnake(headX, headY)
-		createFruit(coordinates[0] ,coordinates[1])
+	var aNbOfEnemies = utils.getRandomNumber(15, 25)
+	print ("nb aNbOfEnemies ",aNbOfEnemies )
+	for i in range (aNbOfEnemies):
+		var aCoordinates = getCoordinatesOutsideOfSnake(aHeadCoordinates)
+		createEnemy(aCoordinates[0] ,aCoordinates[1])
 	
-func spawnSnake(headX, headY) -> void:
+func spawnSnake(iHeadCoordinates) -> void:
 	if ( get_node_or_null("snake" ) !=  null ):
-		$"snake".position = Vector2(headX, headY)
-	$"snake".add_tail()
+		$"snake".position = Vector2(iHeadCoordinates[0], iHeadCoordinates[1])
+		$"snake".addTail()
 	
-func getCoordinatesOutsideOfSnake(headX, headY) :
-	var newX = utils.get_random_number( spawnMinX ,spawnMaxX )
-	var newY = utils.get_random_number( spawnMinY, spawnMaxY )
+func getCoordinatesOutsideOfSnake(iHeadCoordinates) :
+	var aNewCoordinates = utils.getRandomCoordinates()
 	
-	while ( !(newX < headX - 200 || newX > headX + 80 || newY < headY - 80 || newY > headY + 80) ):
-		if (!(newX < (headX - 200) || newX > (headX + 80))):
-			newX = utils.get_random_number((viewportX as int)-30 ,30 )
-		else:
-			newY = utils.get_random_number((viewportY as int)-30 ,30 )
-		
+	while ( !(aNewCoordinates[0] < (iHeadCoordinates[0] - 200) || aNewCoordinates[0] > (iHeadCoordinates[0] + 80) ||
+		 aNewCoordinates[1] < iHeadCoordinates[1] - 80 ||  aNewCoordinates[1] > iHeadCoordinates[1] + 80) ):
+		aNewCoordinates = utils.getRandomCoordinates()
 	
-	return [newX, newY]
+	return aNewCoordinates
 	
 func createFruit(fruitX ,fruitY):
-	var fruitType = utils.get_random_number(0, 7)
+	var fruitType = utils.getRandomNumber(0, 7)
 	var newFruit = factoryInstance.generate_element(fruitType)
 	newFruit.position = Vector2(fruitX ,fruitY)
-	print ("new fruit position ",fruitX, "  ", fruitY )
 	newFruit.connect("object_overlap",self,"object_overlap")
 	newFruit.connect("fruit_eaten",self,"fruit_eaten")
 	add_child(newFruit)
 	
 		
 func createEnemy(enemyX ,enemyY):
-	var enemyType = utils.get_random_number(0, 1)
+	var enemyType = utils.getRandomNumber(0, 3)
 	var newEnemy = factoryEnemyInstance.generate_element(enemyType)
 	newEnemy.position = Vector2(enemyX ,enemyY)
-	print ("new enemy position ",enemyX, "  ", enemyY )
 	newEnemy.connect("object_overlap",self,"object_overlap")
 	newEnemy.connect("enemy_encontered",self,"enemy_encontered")
 	add_child(newEnemy)
@@ -80,16 +69,16 @@ func createEnemy(enemyX ,enemyY):
 func object_overlap(objName):
 	print ("game")
 	var snakeCoordinates = get_node("snake").position
-	var coordinates = getCoordinatesOutsideOfSnake(snakeCoordinates.x, snakeCoordinates.y)
+	var coordinates = getCoordinatesOutsideOfSnake([snakeCoordinates.x, snakeCoordinates.y])
 	if objName=="fruit":
 		createFruit(coordinates[0] ,coordinates[1])
 	else:
 		createEnemy(coordinates[0] ,coordinates[1])
-		$"snake".remove_tail()
+		$"snake".removeTail()
 
 func enemy_encontered():
 	print ("enemy_encontered")
 	if ( get_node_or_null("snake" ) !=  null ):
-		$"snake".remove_tail()
+		$"snake".removeTail()
 		
 	
