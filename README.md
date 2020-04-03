@@ -4,7 +4,6 @@ A snake-like game prototype made with  [Godot engine](http://godotengine.org) wh
 I made this project to learn Godot and test various features. The scripts are written in gdscript.
 
 ### Things I learned
- - Autoload magic
  - How to switch scenes
  - How to use fonts
  - Window / Full screen
